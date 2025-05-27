@@ -20,6 +20,7 @@ import {
   Users,
   Video,
 } from "lucide-react";
+
 export const faqs = [
   {
     question: "How do I reset my password?",

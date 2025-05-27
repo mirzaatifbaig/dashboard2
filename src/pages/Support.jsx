@@ -1,37 +1,14 @@
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Badge } from "@/components/ui/badge";
-import { Avatar, AvatarFallback } from "@/components/ui/avatar";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Textarea } from "@/components/ui/textarea";
-import {
-  Clock,
-  Headphones,
-  HelpCircle,
-  Mail,
-  MessageSquare,
-  Search,
-} from "lucide-react";
-import {
-  faqs,
-  helpResources,
-  recentTickets,
-  supportChannels,
-} from "@/data/mock.js";
+import {Card, CardContent, CardDescription, CardHeader, CardTitle,} from "@/components/ui/card";
+import {Button} from "@/components/ui/button";
+import {Input} from "@/components/ui/input";
+import {Label} from "@/components/ui/label";
+import {Badge} from "@/components/ui/badge";
+import {Avatar, AvatarFallback} from "@/components/ui/avatar";
+import {Accordion, AccordionContent, AccordionItem, AccordionTrigger,} from "@/components/ui/accordion";
+import {Tabs, TabsContent, TabsList, TabsTrigger} from "@/components/ui/tabs";
+import {Textarea} from "@/components/ui/textarea";
+import {Clock, Headphones, HelpCircle, Mail, MessageSquare, Search,} from "lucide-react";
+import {faqs, helpResources, recentTickets, supportChannels,} from "@/data/mock.js";
 
 export default function Support() {
   return (

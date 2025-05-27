@@ -1,26 +1,10 @@
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import {
-  Bell,
-  BookmarkCheck,
-  Check,
-  CheckCircle,
-  Clock,
-  Mail,
-  MessageSquare,
-  Settings,
-  Trash2,
-} from "lucide-react";
-import { notifications } from "@/data/mock.js";
+import {Card, CardContent, CardDescription, CardHeader, CardTitle,} from "@/components/ui/card";
+import {Button} from "@/components/ui/button";
+import {Badge} from "@/components/ui/badge";
+import {Avatar, AvatarFallback, AvatarImage} from "@/components/ui/avatar";
+import {Tabs, TabsContent, TabsList, TabsTrigger} from "@/components/ui/tabs";
+import {Bell, BookmarkCheck, Check, CheckCircle, Clock, Mail, MessageSquare, Settings, Trash2,} from "lucide-react";
+import {notifications} from "@/data/mock.js";
 
 export default function Notifications() {
   const getNotificationIcon = (type) => {

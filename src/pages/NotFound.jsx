@@ -1,14 +1,7 @@
-import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import {
-  AlertTriangle,
-  ArrowLeft,
-  HelpCircle,
-  Home,
-  RefreshCw,
-  Search,
-} from "lucide-react";
-import { helpfulLinks } from "@/data/mock.js";
+import {Card, CardContent} from "@/components/ui/card";
+import {Button} from "@/components/ui/button";
+import {AlertTriangle, ArrowLeft, HelpCircle, RefreshCw,} from "lucide-react";
+import {helpfulLinks} from "@/data/mock.js";
 
 export default function NotFound({ onNavigate }) {
   const handleGoBack = () => {

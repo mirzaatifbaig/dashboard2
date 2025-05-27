@@ -1,4 +1,4 @@
-import { useState } from "react";
+import {useState} from "react";
 import Dashboard from "@/pages/Dashboard";
 import Profile from "@/pages/Profile";
 import Analytics from "@/pages/Analytics.jsx";
@@ -9,7 +9,7 @@ import Support from "@/pages/Support";
 import Billing from "@/pages/Billing";
 import FileManager from "@/pages/FileManager";
 import NotFound from "@/pages/NotFound";
-import { Button } from "@/components/ui/button";
+import {Button} from "@/components/ui/button";
 import {
   BarChart3,
   Bell,

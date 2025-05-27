@@ -1,31 +1,10 @@
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Progress } from "@/components/ui/progress";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import {
-  BarChart3,
-  Clock,
-  Download,
-  Filter,
-  RefreshCw,
-  TrendingDown,
-  TrendingUp,
-} from "lucide-react";
-import { Button } from "@/components/ui/button";
-import {
-  deviceStats,
-  kpiData,
-  monthlyData,
-  recentActivity,
-  topPages,
-  trafficSources,
-} from "@/data/mock.js";
+import {Card, CardContent, CardDescription, CardHeader, CardTitle,} from "@/components/ui/card";
+import {Badge} from "@/components/ui/badge";
+import {Progress} from "@/components/ui/progress";
+import {Tabs, TabsContent, TabsList, TabsTrigger} from "@/components/ui/tabs";
+import {BarChart3, Clock, Download, Filter, RefreshCw, TrendingDown, TrendingUp,} from "lucide-react";
+import {Button} from "@/components/ui/button";
+import {deviceStats, kpiData, monthlyData, recentActivity, topPages, trafficSources,} from "@/data/mock.js";
 
 function Analytics() {
   return (
