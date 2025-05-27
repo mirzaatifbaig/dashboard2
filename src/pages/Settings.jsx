@@ -1,29 +1,38 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import { Switch } from '@/components/ui/switch';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { Separator } from '@/components/ui/separator';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { 
-  Settings as SettingsIcon, 
-  Bell, 
-  Shield, 
-  Palette,
-  Globe,
-  User,
-  Mail,
-  Smartphone,
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Switch } from "@/components/ui/switch";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { Separator } from "@/components/ui/separator";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import {
+  Bell,
+  Download,
   Eye,
   Lock,
-  Download
-} from 'lucide-react';
+  Mail,
+  Palette,
+  Settings as SettingsIcon,
+  Shield,
+  Smartphone,
+} from "lucide-react";
 
 export default function Settings() {
   return (
     <div className="p-6 max-w-4xl mx-auto space-y-6">
-      {/* Header */}
       <div>
         <h1 className="text-3xl font-bold tracking-tight">Settings</h1>
         <p className="text-muted-foreground">
@@ -32,14 +41,13 @@ export default function Settings() {
       </div>
 
       <Tabs defaultValue="general" className="space-y-6">
-        <TabsList className="grid w-full grid-cols-4">
+        <TabsList className="grid grid-cols-2 w-full h-auto lg:grid-cols-4 ">
           <TabsTrigger value="general">General</TabsTrigger>
           <TabsTrigger value="notifications">Notifications</TabsTrigger>
           <TabsTrigger value="privacy">Privacy</TabsTrigger>
           <TabsTrigger value="appearance">Appearance</TabsTrigger>
         </TabsList>
 
-        {/* General Settings */}
         <TabsContent value="general">
           <div className="space-y-6">
             <Card>
@@ -56,9 +64,13 @@ export default function Settings() {
                 <div className="space-y-4">
                   <div className="grid gap-2">
                     <Label htmlFor="username">Username</Label>
-                    <Input id="username" placeholder="Enter username" defaultValue="alexjohnson" />
+                    <Input
+                      id="username"
+                      placeholder="Enter username"
+                      defaultValue="alexjohnson"
+                    />
                   </div>
-                  
+
                   <div className="grid gap-2">
                     <Label htmlFor="language">Language</Label>
                     <Select defaultValue="en">
@@ -81,10 +93,18 @@ export default function Settings() {
                         <SelectValue placeholder="Select timezone" />
                       </SelectTrigger>
                       <SelectContent>
-                        <SelectItem value="pst">Pacific Standard Time</SelectItem>
-                        <SelectItem value="est">Eastern Standard Time</SelectItem>
-                        <SelectItem value="cst">Central Standard Time</SelectItem>
-                        <SelectItem value="mst">Mountain Standard Time</SelectItem>
+                        <SelectItem value="pst">
+                          Pacific Standard Time
+                        </SelectItem>
+                        <SelectItem value="est">
+                          Eastern Standard Time
+                        </SelectItem>
+                        <SelectItem value="cst">
+                          Central Standard Time
+                        </SelectItem>
+                        <SelectItem value="mst">
+                          Mountain Standard Time
+                        </SelectItem>
                       </SelectContent>
                     </Select>
                   </div>
@@ -94,7 +114,7 @@ export default function Settings() {
 
                 <div className="space-y-4">
                   <h3 className="text-lg font-medium">System Preferences</h3>
-                  
+
                   <div className="flex items-center justify-between">
                     <div className="space-y-0.5">
                       <Label>Auto-save drafts</Label>
@@ -130,9 +150,8 @@ export default function Settings() {
           </div>
         </TabsContent>
 
-        {/* Notifications Settings */}
         <TabsContent value="notifications">
-          <Card>
+          <Card className={"w-full"}>
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
                 <Bell className="h-5 w-5" />
@@ -148,7 +167,7 @@ export default function Settings() {
                   <Mail className="h-5 w-5" />
                   Email Notifications
                 </h3>
-                
+
                 <div className="space-y-4">
                   <div className="flex items-center justify-between">
                     <div className="space-y-0.5">
@@ -189,7 +208,7 @@ export default function Settings() {
                   <Smartphone className="h-5 w-5" />
                   Push Notifications
                 </h3>
-                
+
                 <div className="space-y-4">
                   <div className="flex items-center justify-between">
                     <div className="space-y-0.5">
@@ -226,7 +245,6 @@ export default function Settings() {
           </Card>
         </TabsContent>
 
-        {/* Privacy Settings */}
         <TabsContent value="privacy">
           <Card>
             <CardHeader>
@@ -238,64 +256,79 @@ export default function Settings() {
                 Control your privacy settings and data sharing preferences
               </CardDescription>
             </CardHeader>
-            <CardContent className="space-y-6">
+            <CardContent className="space-y-6 max-w-full">
               <div className="space-y-4">
                 <h3 className="text-lg font-medium flex items-center gap-2">
                   <Eye className="h-5 w-5" />
                   Profile Visibility
                 </h3>
-                
-                <div className="space-y-4">
-                  <div className="flex items-center justify-between">
+
+                <div className="space-y-4 max-w-full">
+                  <div className="flex flex-col md:flex-col max-w-full">
                     <div className="space-y-0.5">
                       <Label>Public profile</Label>
-                      <p className="text-sm text-muted-foreground">
+                      <p className="text-sm text-muted-foreground break-words">
                         Make your profile visible to everyone
                       </p>
                     </div>
-                    <Switch />
+                    <div className="mt-2 md:mt-1">
+                      <Switch />
+                    </div>
                   </div>
 
-                  <div className="flex items-center justify-between">
+                  <div className="flex flex-col md:flex-col max-w-full">
                     <div className="space-y-0.5">
                       <Label>Show online status</Label>
-                      <p className="text-sm text-muted-foreground">
+                      <p className="text-sm text-muted-foreground break-words">
                         Let others see when you're online
                       </p>
                     </div>
-                    <Switch defaultChecked />
+                    <div className="mt-2 md:mt-1">
+                      <Switch defaultChecked />
+                    </div>
                   </div>
 
-                  <div className="flex items-center justify-between">
+                  <div className="flex flex-col md:flex-col max-w-full">
                     <div className="space-y-0.5">
                       <Label>Activity tracking</Label>
-                      <p className="text-sm text-muted-foreground">
+                      <p className="text-sm text-muted-foreground break-words">
                         Track your activity for analytics
                       </p>
                     </div>
-                    <Switch defaultChecked />
+                    <div className="mt-2 md:mt-1">
+                      <Switch defaultChecked />
+                    </div>
                   </div>
                 </div>
               </div>
 
               <Separator />
 
-              <div className="space-y-4">
+              <div className="space-y-4 max-w-full">
                 <h3 className="text-lg font-medium flex items-center gap-2">
                   <Lock className="h-5 w-5" />
                   Security Settings
                 </h3>
-                
-                <div className="space-y-4">
-                  <Button variant="outline" className="justify-start">
+
+                <div className="flex flex-col space-y-4 max-w-full">
+                  <Button
+                    variant="outline"
+                    className="justify-start w-full md:w-auto"
+                  >
                     Change Password
                   </Button>
-                  
-                  <Button variant="outline" className="justify-start">
-                    Enable Two-Factor Authentication
+
+                  <Button
+                    variant="outline"
+                    className="justify-start w-full md:w-auto"
+                  >
+                    Enable Two-Factor
                   </Button>
-                  
-                  <Button variant="outline" className="justify-start">
+
+                  <Button
+                    variant="outline"
+                    className="justify-start w-full md:w-auto"
+                  >
                     Manage Connected Apps
                   </Button>
                 </div>
@@ -303,18 +336,24 @@ export default function Settings() {
 
               <Separator />
 
-              <div className="space-y-4">
+              <div className="space-y-4 max-w-full">
                 <h3 className="text-lg font-medium flex items-center gap-2">
                   <Download className="h-5 w-5" />
                   Data Management
                 </h3>
-                
-                <div className="space-y-2">
-                  <Button variant="outline" className="justify-start">
+
+                <div className="flex flex-col space-y-2 max-w-full">
+                  <Button
+                    variant="outline"
+                    className="justify-start w-full md:w-auto"
+                  >
                     Download Your Data
                   </Button>
-                  
-                  <Button variant="destructive" className="justify-start">
+
+                  <Button
+                    variant="destructive"
+                    className="justify-start w-full md:w-auto"
+                  >
                     Delete Account
                   </Button>
                 </div>
@@ -322,8 +361,6 @@ export default function Settings() {
             </CardContent>
           </Card>
         </TabsContent>
-
-        {/* Appearance Settings */}
         <TabsContent value="appearance">
           <Card>
             <CardHeader>
@@ -383,7 +420,7 @@ export default function Settings() {
 
               <div className="space-y-4">
                 <h3 className="text-lg font-medium">Display Options</h3>
-                
+
                 <div className="flex items-center justify-between">
                   <div className="space-y-0.5">
                     <Label>Compact view</Label>
@@ -419,11 +456,8 @@ export default function Settings() {
         </TabsContent>
       </Tabs>
 
-      {/* Save Button */}
       <div className="flex justify-end">
-        <Button className="w-full md:w-auto">
-          Save All Changes
-        </Button>
+        <Button className="w-full md:w-auto">Save All Changes</Button>
       </div>
     </div>
   );

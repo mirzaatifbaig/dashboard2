@@ -1,102 +1,63 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { Separator } from '@/components/ui/separator';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { 
-  Bell, 
-  Check, 
-  X, 
-  Info, 
-  AlertCircle, 
-  CheckCircle, 
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import {
+  Bell,
+  BookmarkCheck,
+  Check,
+  CheckCircle,
   Clock,
   Mail,
   MessageSquare,
-  User,
   Settings,
   Trash2,
-  BookmarkCheck
-} from 'lucide-react';
+} from "lucide-react";
+import { notifications } from "@/data/mock.js";
 
 export default function Notifications() {
-  const notifications = [
-    {
-      id: 1,
-      type: 'message',
-      title: 'New message from Sarah Wilson',
-      description: 'Hey! I wanted to discuss the new project requirements with you.',
-      time: '2 minutes ago',
-      read: false,
-      priority: 'high',
-      avatar: 'https://images.unsplash.com/photo-1494790108755-2616b612b786?w=400&h=400&fit=crop&crop=face'
-    },
-    {
-      id: 2,
-      type: 'system',
-      title: 'System maintenance scheduled',
-      description: 'Scheduled maintenance will occur tonight from 2-4 AM EST.',
-      time: '1 hour ago',
-      read: false,
-      priority: 'medium'
-    },
-    {
-      id: 3,
-      type: 'project',
-      title: 'Project "Website Redesign" updated',
-      description: 'New tasks have been added to the project board.',
-      time: '3 hours ago',
-      read: true,
-      priority: 'low'
-    },
-    {
-      id: 4,
-      type: 'achievement',
-      title: 'Congratulations! Achievement unlocked',
-      description: 'You\'ve completed 10 projects this month. Great work!',
-      time: '1 day ago',
-      read: true,
-      priority: 'high'
-    },
-    {
-      id: 5,
-      type: 'reminder',
-      title: 'Meeting reminder',
-      description: 'Team standup meeting starts in 30 minutes.',
-      time: '2 days ago',
-      read: true,
-      priority: 'medium'
-    }
-  ];
-
   const getNotificationIcon = (type) => {
     switch (type) {
-      case 'message': return MessageSquare;
-      case 'system': return Settings;
-      case 'project': return CheckCircle;
-      case 'achievement': return CheckCircle;
-      case 'reminder': return Clock;
-      default: return Bell;
+      case "message":
+        return MessageSquare;
+      case "system":
+        return Settings;
+      case "project":
+        return CheckCircle;
+      case "achievement":
+        return CheckCircle;
+      case "reminder":
+        return Clock;
+      default:
+        return Bell;
     }
   };
-
   const getNotificationColor = (priority) => {
     switch (priority) {
-      case 'high': return 'text-red-500';
-      case 'medium': return 'text-yellow-500';
-      case 'low': return 'text-green-500';
-      default: return 'text-gray-500';
+      case "high":
+        return "text-red-500";
+      case "medium":
+        return "text-yellow-500";
+      case "low":
+        return "text-green-500";
+      default:
+        return "text-gray-500";
     }
   };
 
-  const unreadCount = notifications.filter(n => !n.read).length;
-  const readNotifications = notifications.filter(n => n.read);
-  const unreadNotifications = notifications.filter(n => !n.read);
+  const unreadCount = notifications.filter((n) => !n.read).length;
+  const readNotifications = notifications.filter((n) => n.read);
+  const unreadNotifications = notifications.filter((n) => !n.read);
 
   return (
     <div className="p-6 max-w-4xl mx-auto space-y-6">
-      {/* Header */}
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-3xl font-bold tracking-tight flex items-center gap-3">
@@ -112,7 +73,7 @@ export default function Notifications() {
             Stay updated with your latest activities and alerts
           </p>
         </div>
-        
+
         <div className="flex items-center gap-2">
           <Button variant="outline" size="sm">
             <Check className="h-4 w-4 mr-2" />
@@ -125,13 +86,14 @@ export default function Notifications() {
         </div>
       </div>
 
-      {/* Quick Stats */}
       <div className="grid gap-4 md:grid-cols-3">
         <Card>
           <CardContent className="p-4">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm font-medium text-muted-foreground">Unread</p>
+                <p className="text-sm font-medium text-muted-foreground">
+                  Unread
+                </p>
                 <p className="text-2xl font-bold">{unreadCount}</p>
               </div>
               <div className="h-8 w-8 bg-red-500/10 rounded-full flex items-center justify-center">
@@ -140,12 +102,14 @@ export default function Notifications() {
             </div>
           </CardContent>
         </Card>
-        
+
         <Card>
           <CardContent className="p-4">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm font-medium text-muted-foreground">Total</p>
+                <p className="text-sm font-medium text-muted-foreground">
+                  Total
+                </p>
                 <p className="text-2xl font-bold">{notifications.length}</p>
               </div>
               <div className="h-8 w-8 bg-blue-500/10 rounded-full flex items-center justify-center">
@@ -154,12 +118,14 @@ export default function Notifications() {
             </div>
           </CardContent>
         </Card>
-        
+
         <Card>
           <CardContent className="p-4">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm font-medium text-muted-foreground">This Week</p>
+                <p className="text-sm font-medium text-muted-foreground">
+                  This Week
+                </p>
                 <p className="text-2xl font-bold">12</p>
               </div>
               <div className="h-8 w-8 bg-green-500/10 rounded-full flex items-center justify-center">
@@ -170,20 +136,22 @@ export default function Notifications() {
         </Card>
       </div>
 
-      {/* Notifications Tabs */}
       <Tabs defaultValue="all" className="space-y-6">
         <TabsList className="grid w-full grid-cols-3">
           <TabsTrigger value="all">All ({notifications.length})</TabsTrigger>
           <TabsTrigger value="unread">Unread ({unreadCount})</TabsTrigger>
-          <TabsTrigger value="read">Read ({readNotifications.length})</TabsTrigger>
+          <TabsTrigger value="read">
+            Read ({readNotifications.length})
+          </TabsTrigger>
         </TabsList>
 
-        {/* All Notifications */}
         <TabsContent value="all">
           <Card>
             <CardHeader>
               <CardTitle>All Notifications</CardTitle>
-              <CardDescription>Complete list of your notifications</CardDescription>
+              <CardDescription>
+                Complete list of your notifications
+              </CardDescription>
             </CardHeader>
             <CardContent className="p-0">
               <div className="divide-y">
@@ -193,24 +161,34 @@ export default function Notifications() {
                     <div
                       key={notification.id}
                       className={`p-4 hover:bg-accent/50 transition-colors ${
-                        !notification.read ? 'bg-blue-50/50 border-l-4 border-l-blue-500' : ''
+                        !notification.read
+                          ? "bg-blue-50/50 border-l-4 border-l-blue-500"
+                          : ""
                       }`}
                     >
                       <div className="flex items-start gap-4">
                         {notification.avatar ? (
                           <Avatar className="h-10 w-10">
                             <AvatarImage src={notification.avatar} />
-                            <AvatarFallback>{notification.title[0]}</AvatarFallback>
+                            <AvatarFallback>
+                              {notification.title[0]}
+                            </AvatarFallback>
                           </Avatar>
                         ) : (
-                          <div className={`h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center`}>
-                            <Icon className={`h-5 w-5 ${getNotificationColor(notification.priority)}`} />
+                          <div
+                            className={`h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center`}
+                          >
+                            <Icon
+                              className={`h-5 w-5 ${getNotificationColor(notification.priority)}`}
+                            />
                           </div>
                         )}
-                        
+
                         <div className="flex-1 min-w-0">
                           <div className="flex items-center justify-between mb-1">
-                            <h3 className={`text-sm font-medium ${!notification.read ? 'text-foreground' : 'text-muted-foreground'}`}>
+                            <h3
+                              className={`text-sm font-medium ${!notification.read ? "text-foreground" : "text-muted-foreground"}`}
+                            >
                               {notification.title}
                             </h3>
                             <div className="flex items-center gap-2">
@@ -231,10 +209,18 @@ export default function Notifications() {
                               {notification.time}
                             </p>
                             <div className="flex items-center gap-1">
-                              <Button variant="ghost" size="sm" className="h-8 w-8 p-0">
+                              <Button
+                                variant="ghost"
+                                size="sm"
+                                className="h-8 w-8 p-0"
+                              >
                                 <BookmarkCheck className="h-4 w-4" />
                               </Button>
-                              <Button variant="ghost" size="sm" className="h-8 w-8 p-0">
+                              <Button
+                                variant="ghost"
+                                size="sm"
+                                className="h-8 w-8 p-0"
+                              >
                                 <Trash2 className="h-4 w-4" />
                               </Button>
                             </div>
@@ -249,19 +235,22 @@ export default function Notifications() {
           </Card>
         </TabsContent>
 
-        {/* Unread Notifications */}
         <TabsContent value="unread">
           <Card>
             <CardHeader>
               <CardTitle>Unread Notifications</CardTitle>
-              <CardDescription>Notifications that require your attention</CardDescription>
+              <CardDescription>
+                Notifications that require your attention
+              </CardDescription>
             </CardHeader>
             <CardContent className="p-0">
               {unreadNotifications.length === 0 ? (
                 <div className="p-8 text-center">
                   <CheckCircle className="h-12 w-12 mx-auto text-green-500 mb-4" />
                   <h3 className="text-lg font-medium mb-2">All caught up!</h3>
-                  <p className="text-muted-foreground">You have no unread notifications.</p>
+                  <p className="text-muted-foreground">
+                    You have no unread notifications.
+                  </p>
                 </div>
               ) : (
                 <div className="divide-y">
@@ -276,14 +265,18 @@ export default function Notifications() {
                           {notification.avatar ? (
                             <Avatar className="h-10 w-10">
                               <AvatarImage src={notification.avatar} />
-                              <AvatarFallback>{notification.title[0]}</AvatarFallback>
+                              <AvatarFallback>
+                                {notification.title[0]}
+                              </AvatarFallback>
                             </Avatar>
                           ) : (
                             <div className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center">
-                              <Icon className={`h-5 w-5 ${getNotificationColor(notification.priority)}`} />
+                              <Icon
+                                className={`h-5 w-5 ${getNotificationColor(notification.priority)}`}
+                              />
                             </div>
                           )}
-                          
+
                           <div className="flex-1 min-w-0">
                             <div className="flex items-center justify-between mb-1">
                               <h3 className="text-sm font-medium text-foreground">
@@ -314,7 +307,6 @@ export default function Notifications() {
           </Card>
         </TabsContent>
 
-        {/* Read Notifications */}
         <TabsContent value="read">
           <Card>
             <CardHeader>
@@ -334,14 +326,16 @@ export default function Notifications() {
                         {notification.avatar ? (
                           <Avatar className="h-10 w-10">
                             <AvatarImage src={notification.avatar} />
-                            <AvatarFallback>{notification.title[0]}</AvatarFallback>
+                            <AvatarFallback>
+                              {notification.title[0]}
+                            </AvatarFallback>
                           </Avatar>
                         ) : (
                           <div className="h-10 w-10 rounded-full bg-muted flex items-center justify-center">
                             <Icon className="h-5 w-5 text-muted-foreground" />
                           </div>
                         )}
-                        
+
                         <div className="flex-1 min-w-0">
                           <h3 className="text-sm font-medium text-muted-foreground mb-1">
                             {notification.title}

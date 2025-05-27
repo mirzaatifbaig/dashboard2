@@ -1,52 +1,33 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { Badge } from '@/components/ui/badge';
-import { Separator } from '@/components/ui/separator';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { 
-  User, 
-  Mail, 
-  Phone, 
-  MapPin, 
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Badge } from "@/components/ui/badge";
+import { Separator } from "@/components/ui/separator";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import {
+  Award,
   Calendar,
-  Edit3,
   Camera,
-  Shield,
-  Star,
-  Award
-} from 'lucide-react';
+  Edit3,
+  Mail,
+  MapPin,
+  Phone,
+  User,
+} from "lucide-react";
+import { userInfo } from "@/data/mock";
+import { achievements, recentActivity } from "@/data/mock.js";
 
 export default function Profile() {
-  const userInfo = {
-    name: 'Alex Johnson',
-    email: 'alex.johnson@example.com',
-    phone: '+1 (555) 123-4567',
-    location: 'San Francisco, CA',
-    joinDate: 'January 2023',
-    role: 'Senior Developer',
-    department: 'Engineering',
-    avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=face'
-  };
-
-  const achievements = [
-    { title: 'Project Leader', description: 'Led 5+ successful projects', icon: Award },
-    { title: 'Team Player', description: 'Excellent collaboration skills', icon: Star },
-    { title: 'Innovation Award', description: 'Best new feature 2024', icon: Shield }
-  ];
-
-  const recentActivity = [
-    { action: 'Completed React Dashboard project', date: '2 days ago' },
-    { action: 'Updated profile information', date: '1 week ago' },
-    { action: 'Joined Engineering team', date: '2 weeks ago' },
-    { action: 'Earned Innovation Award', date: '1 month ago' }
-  ];
-
   return (
     <div className="p-6 max-w-4xl mx-auto space-y-6">
-      {/* Header */}
       <div>
         <h1 className="text-3xl font-bold tracking-tight">Profile</h1>
         <p className="text-muted-foreground">
@@ -54,7 +35,6 @@ export default function Profile() {
         </p>
       </div>
 
-      {/* Profile Header Card */}
       <Card>
         <CardContent className="p-6">
           <div className="flex flex-col md:flex-row items-start md:items-center space-y-4 md:space-y-0 md:space-x-6">
@@ -62,7 +42,10 @@ export default function Profile() {
               <Avatar className="h-24 w-24">
                 <AvatarImage src={userInfo.avatar} alt={userInfo.name} />
                 <AvatarFallback className="text-lg">
-                  {userInfo.name.split(' ').map(n => n[0]).join('')}
+                  {userInfo.name
+                    .split(" ")
+                    .map((n) => n[0])
+                    .join("")}
                 </AvatarFallback>
               </Avatar>
               <Button
@@ -73,7 +56,7 @@ export default function Profile() {
                 <Camera className="h-4 w-4" />
               </Button>
             </div>
-            
+
             <div className="flex-1">
               <div className="flex flex-col md:flex-row md:items-center md:justify-between">
                 <div>
@@ -91,7 +74,9 @@ export default function Profile() {
                   </div>
                 </div>
                 <div className="mt-4 md:mt-0">
-                  <Badge variant="secondary" className="mr-2">{userInfo.department}</Badge>
+                  <Badge variant="secondary" className="mr-2">
+                    {userInfo.department}
+                  </Badge>
                   <Badge variant="outline">Active</Badge>
                 </div>
               </div>
@@ -100,7 +85,6 @@ export default function Profile() {
         </CardContent>
       </Card>
 
-      {/* Tabs Section */}
       <Tabs defaultValue="personal" className="space-y-6">
         <TabsList className="grid w-full grid-cols-3">
           <TabsTrigger value="personal">Personal Info</TabsTrigger>
@@ -108,7 +92,6 @@ export default function Profile() {
           <TabsTrigger value="activity">Activity</TabsTrigger>
         </TabsList>
 
-        {/* Personal Information Tab */}
         <TabsContent value="personal">
           <Card>
             <CardHeader>
@@ -177,9 +160,9 @@ export default function Profile() {
                   </div>
                 </div>
               </div>
-              
+
               <Separator />
-              
+
               <div className="flex justify-end space-x-2">
                 <Button variant="outline">Cancel</Button>
                 <Button className="flex items-center gap-2">
@@ -191,7 +174,6 @@ export default function Profile() {
           </Card>
         </TabsContent>
 
-        {/* Achievements Tab */}
         <TabsContent value="achievements">
           <Card>
             <CardHeader>
@@ -208,11 +190,18 @@ export default function Profile() {
                 {achievements.map((achievement) => {
                   const Icon = achievement.icon;
                   return (
-                    <Card key={achievement.title} className="border-2 border-dashed border-primary/20">
+                    <Card
+                      key={achievement.title}
+                      className="border-2 border-dashed border-primary/20"
+                    >
                       <CardContent className="p-6 text-center">
                         <Icon className="h-12 w-12 mx-auto mb-4 text-primary" />
-                        <h3 className="font-semibold mb-2">{achievement.title}</h3>
-                        <p className="text-sm text-muted-foreground">{achievement.description}</p>
+                        <h3 className="font-semibold mb-2">
+                          {achievement.title}
+                        </h3>
+                        <p className="text-sm text-muted-foreground">
+                          {achievement.description}
+                        </p>
                       </CardContent>
                     </Card>
                   );
@@ -222,23 +211,25 @@ export default function Profile() {
           </Card>
         </TabsContent>
 
-        {/* Activity Tab */}
         <TabsContent value="activity">
           <Card>
             <CardHeader>
               <CardTitle>Recent Activity</CardTitle>
-              <CardDescription>
-                Your recent actions and updates
-              </CardDescription>
+              <CardDescription>Your recent actions and updates</CardDescription>
             </CardHeader>
             <CardContent>
               <div className="space-y-4">
                 {recentActivity.map((activity, index) => (
-                  <div key={index} className="flex items-center space-x-4 p-4 rounded-lg border">
+                  <div
+                    key={index}
+                    className="flex items-center space-x-4 p-4 rounded-lg border"
+                  >
                     <div className="h-2 w-2 bg-primary rounded-full" />
                     <div className="flex-1">
                       <p className="text-sm font-medium">{activity.action}</p>
-                      <p className="text-xs text-muted-foreground">{activity.date}</p>
+                      <p className="text-xs text-muted-foreground">
+                        {activity.date}
+                      </p>
                     </div>
                   </div>
                 ))}
