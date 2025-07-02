@@ -227,15 +227,15 @@ export const notifications = [
   },
 ];
 export const userInfo = {
-  name: "Alex Johnson",
-  email: "alex.johnson@example.com",
-  phone: "+1 (555) 123-4567",
-  location: "San Francisco, CA",
-  joinDate: "January 2023",
-  role: "Senior Developer",
+  name: "Atif Baig",
+  email: "mirzaatifb91@gmail.com",
+  phone: "+9231111111111",
+  location: "Lahore, Pakistan",
+  joinDate: "January 2024",
+  role: "Software Developer",
   department: "Engineering",
   avatar:
-    "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=face",
+    "https://avatars.githubusercontent.com/u/63869168?v=4",
 };
 export const achievements = [
   {
